@@ -20,9 +20,10 @@ if (!empty($data["name"]) && !empty($data["name"]) && !empty($data["age"]) && !e
     $name = $conn->real_escape_string($data["name"]);
     $email = $conn->real_escape_string($data["email"]);
     $age = $conn->real_escape_string($data["age"]);
+    $gender = $conn->real_escape_string($data["gender"]);
     $phoneNumber = $conn->real_escape_string($data["phoneNumber"]);
 
-    $sql = "INSERT INTO clients (name, email, age, phoneNumber) VALUES ('$name', '$email', '$age', '$phoneNumber')";
+    $sql = "INSERT INTO clients (name, email, age, gender, phoneNumber) VALUES ('$name', '$email', '$age','$gender', '$phoneNumber')";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["status" => "success", "message" => " data added successfully"]);
